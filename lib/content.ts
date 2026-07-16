@@ -109,12 +109,12 @@ export const team = [
     bio: "Medical Board of Trinidad & Tobago Registration No. A-386. Over 17 years' experience in General and Family Medicine, with a special interest in chronic disease.",
   },
   {
-    name: "Giselle McIntyre",
+    name: "Giselle McIntyre, M.Sc.",
     role: "Practice Communications Manager / Healthcare Customer Relations Specialist / Patient Advocate",
     bio: "Advance Dip. (Media & Mass Comms.), B.A. (Communication Studies), M.Sc. (International Relations) (UWI), Florence Academy London. Basic Life Support (BLS) Theory, Adult Medical Support & Protection, Dementia Awareness Level 1.",
   },
   {
-    name: "Alicia Daniel",
+    name: "Alicia Daniel, B.Sc.",
     role: "On-call Ultrasound Technologist / Sonographer",
     bio: "BSc (Radiography), Adv. Dip (Ultrasound).",
   },

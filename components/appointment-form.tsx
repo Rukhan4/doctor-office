@@ -68,15 +68,25 @@ export function AppointmentForm() {
         </label>
         <label className="grid gap-2">
           <span className="text-sm font-medium text-ink">Preferred time</span>
-          <select name="preferredTime" required defaultValue="" className="rounded-2xl border border-line bg-page px-4 py-3 text-ink outline-none transition focus:border-accent">
-            <option value="" disabled>
-              Select a preferred time
-            </option>
-            <option value="Morning">Morning</option>
-            <option value="Afternoon">Afternoon</option>
-            <option value="Evening">Evening</option>
-            <option value="Any time">Any time</option>
-          </select>
+          <div className="relative">
+            <select
+              name="preferredTime"
+              required
+              defaultValue=""
+              className="block min-h-[48px] w-full appearance-none rounded-2xl border border-line bg-page px-4 py-3 pr-10 text-base text-ink outline-none transition focus:border-accent"
+            >
+              <option value="" disabled>
+                Select a preferred time
+              </option>
+              <option value="Morning">Morning</option>
+              <option value="Afternoon">Afternoon</option>
+              <option value="Evening">Evening</option>
+              <option value="Any time">Any time</option>
+            </select>
+            <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-muted" aria-hidden="true">
+              ▾
+            </span>
+          </div>
         </label>
       </div>
 

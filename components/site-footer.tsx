@@ -17,7 +17,7 @@ export function SiteFooter() {
             Packages
           </Link>
           <Link href="/doctors" className="hover:text-ink">
-            Doctors / Team
+            Our Team
           </Link>
           <Link href="/contact" className="hover:text-ink">
             Contact
