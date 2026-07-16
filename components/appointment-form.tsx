@@ -68,7 +68,15 @@ export function AppointmentForm() {
         </label>
         <label className="grid gap-2">
           <span className="text-sm font-medium text-ink">Preferred time</span>
-          <input name="preferredTime" placeholder="Morning, afternoon, or specific time" required className="rounded-2xl border border-line bg-page px-4 py-3 text-ink outline-none transition focus:border-accent" />
+          <select name="preferredTime" required defaultValue="" className="rounded-2xl border border-line bg-page px-4 py-3 text-ink outline-none transition focus:border-accent">
+            <option value="" disabled>
+              Select a preferred time
+            </option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+            <option value="Any time">Any time</option>
+          </select>
         </label>
       </div>
 
