@@ -10,11 +10,11 @@ export function SiteFooter() {
           <p>{practice.address}</p>
         </div>
         <div className="flex flex-wrap gap-4">
+            <Link href="/services" className="hover:text-ink">
+            Services
+          </Link>
           <Link href="/packages" className="hover:text-ink">
             Packages
-          </Link>
-          <Link href="/services" className="hover:text-ink">
-            Services
           </Link>
           <Link href="/doctors" className="hover:text-ink">
             Doctors / Team
