@@ -120,14 +120,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="rounded-[2rem] border border-line bg-white/90 p-8 text-center shadow-sm">
-          <h2 className="font-display text-3xl text-ink sm:text-4xl">Serving Curepe and Nearby Communities</h2>
-          <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-muted">
-            Doctor&apos;s Office Curepe provides care for patients across {serviceAreas.join(", ")}, with easy access to in-office consultations, follow-up care, and selected home and workplace visits.
-          </p>
-        </div>
-      </section>
+
     </>
   );
 }

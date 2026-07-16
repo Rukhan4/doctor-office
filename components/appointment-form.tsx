@@ -103,7 +103,7 @@ export function AppointmentForm() {
         disabled={state.status === "sending"}
         className="inline-flex w-fit rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#285d52] disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {state.status === "sending" ? "Sending..." : "Request appointment"}
+        {state.status === "sending" ? "Sending..." : "Send"}
       </button>
 
       {state.status !== "idle" ? (
