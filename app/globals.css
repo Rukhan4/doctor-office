@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(47, 111, 98, 0.16), transparent 36%),
+    radial-gradient(circle at right 20%, rgba(239, 229, 211, 0.9), transparent 30%),
+    linear-gradient(180deg, #fbfaf7 0%, #f4f1ea 100%);
+  color: #16211c;
+  font-family: "Manrope", sans-serif;
+}
+
+.hero-bg {
+  background:
+    radial-gradient(circle at top left, rgba(47, 111, 98, 0.16), transparent 36%),
+    radial-gradient(circle at right 20%, rgba(239, 229, 211, 0.9), transparent 30%),
+    linear-gradient(180deg, #fbfaf7 0%, #f4f1ea 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(47, 111, 98, 0.2);
+}
