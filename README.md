@@ -18,6 +18,8 @@ Copy `.env.example` to `.env.local` and set:
 - `EMAIL_TO`
 - `TURNSTILE_SECRET_KEY`
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
+- `UPSTASH_REDIS_REST_URL` (required for global distributed rate limiting)
+- `UPSTASH_REDIS_REST_TOKEN` (required for global distributed rate limiting)
 - `APPOINTMENT_RATE_LIMIT_WINDOW_MS` (optional, default `600000`)
 - `APPOINTMENT_RATE_LIMIT_MAX` (optional, default `5`)
 - `CONTACT_PHONE`
@@ -35,6 +37,14 @@ npm run dev
 
 The appointment form posts to `/api/appointment`, which sends mail through Resend.
 Set `EMAIL_FROM` to a verified sender address in your Resend account.
+
+## Rate limiting
+
+The appointment API route uses Upstash Redis for global distributed rate limiting when
+`UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` are configured.
+
+If these variables are missing, the app falls back to an in-memory limiter, which is suitable
+for local development but not globally shared across serverless instances.
 
 ## Analytics and conversions
 

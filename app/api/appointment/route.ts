@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 import { z } from "zod";
 import { sendAppointmentEmail } from "../../../lib/email";
 
@@ -22,6 +24,18 @@ type RateLimitEntry = {
 };
 
 const rateLimitStore = new Map<string, RateLimitEntry>();
+const appointmentRateLimitWindowMs = Number(process.env.APPOINTMENT_RATE_LIMIT_WINDOW_MS ?? "600000");
+const appointmentRateLimitMax = Number(process.env.APPOINTMENT_RATE_LIMIT_MAX ?? "5");
+const appointmentRateLimitWindowSeconds = Math.max(1, Math.ceil(appointmentRateLimitWindowMs / 1000));
+const hasUpstashConfig = Boolean(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
+
+const appointmentRateLimiter = hasUpstashConfig
+  ? new Ratelimit({
+      redis: Redis.fromEnv(),
+      limiter: Ratelimit.slidingWindow(appointmentRateLimitMax, `${appointmentRateLimitWindowSeconds} s`),
+      prefix: "ratelimit:appointment",
+    })
+  : null;
 
 function getClientIp(request: Request) {
   const forwardedFor = request.headers.get("x-forwarded-for") ?? "";
@@ -90,17 +104,26 @@ async function verifyTurnstileToken(token: string, remoteIp?: string) {
 
 export async function POST(request: Request) {
   try {
-    const rateLimitWindowMs = Number(process.env.APPOINTMENT_RATE_LIMIT_WINDOW_MS ?? "600000");
-    const rateLimitMax = Number(process.env.APPOINTMENT_RATE_LIMIT_MAX ?? "5");
     const ip = getClientIp(request);
 
-    cleanExpiredRateLimitEntries();
+    if (appointmentRateLimiter) {
+      const { success } = await appointmentRateLimiter.limit(`appointment:${ip}`);
 
-    if (isRateLimited(ip, rateLimitMax, rateLimitWindowMs)) {
-      return NextResponse.json(
-        { message: "Too many requests. Please wait and try again." },
-        { status: 429 },
-      );
+      if (!success) {
+        return NextResponse.json(
+          { message: "Too many requests. Please wait and try again." },
+          { status: 429 },
+        );
+      }
+    } else {
+      cleanExpiredRateLimitEntries();
+
+      if (isRateLimited(ip, appointmentRateLimitMax, appointmentRateLimitWindowMs)) {
+        return NextResponse.json(
+          { message: "Too many requests. Please wait and try again." },
+          { status: 429 },
+        );
+      }
     }
 
     const body = (await request.json()) as Record<string, unknown>;
