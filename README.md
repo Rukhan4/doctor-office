@@ -18,6 +18,8 @@ Copy `.env.example` to `.env.local` and set:
 - `EMAIL_TO`
 - `TURNSTILE_SECRET_KEY`
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
+- `APPOINTMENT_RATE_LIMIT_WINDOW_MS` (optional, default `600000`)
+- `APPOINTMENT_RATE_LIMIT_MAX` (optional, default `5`)
 - `CONTACT_PHONE`
 - `PRACTICE_ADDRESS`
 - `NEXT_PUBLIC_GA_ID` (optional, for Google Analytics 4)
