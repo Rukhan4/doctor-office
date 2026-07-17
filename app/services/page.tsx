@@ -18,7 +18,7 @@ export default function ServicesPage() {
       <SectionHeading
       title="Services"
         eyebrow="What we offer"
-        description="Comprehensive clinical care for individuals, families, and corporate clients."
+        description="Our services include, but are not limited to:"
       />
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         {services.map((service) => (

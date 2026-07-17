@@ -48,55 +48,55 @@ export const philosophy = [
 
 export const services = [
   {
-    title: "1. General & Preventive Care",
+    title: "General & Preventive Care",
     description:
       "Full medical examinations and wellness screenings. Preventive health counselling. Medical certification for Food Handler's Badge and occupational fitness assessments.",
   },
   {
-    title: "2. Chronic Disease Management",
+    title: "Chronic Disease Management",
     description:
       "Ongoing care for patients with diabetes, hypertension, high cholesterol, and asthma. Regular monitoring, medication review, and lifestyle and nutritional guidance.",
   },
   {
-    title: "3. Advanced Limb Salvaging & Specialized Diabetic Wound Care",
+    title: "Advanced Limb Salvaging & Specialized Diabetic Wound Care",
     description:
       "Comprehensive assessment and management of diabetic foot ulcers, pressure injuries, venous ulcers, and other chronic wounds. Evidence-based wound care, infection management, off-loading strategies, and ongoing wound surveillance. Limb preservation through early diagnosis, timely intervention, and coordinated multidisciplinary care. Clinically appropriate limb-preservation outcomes for patients with advanced diabetic foot disease.",
   },
   
   {
-       title: "4. Minor Surgical Procedures",
+       title: "Minor Surgical Procedures",
     description:
       "Wound suturing and laceration repair, incision and drainage of abscesses, excision of benign skin lesions, partial and complete nail avulsion for ingrown toenails, wound debridement, foreign body removal, suture and staple removal, and sterile dressing of acute and chronic wounds.",
   
 },
   {
-        title: "5. Acute Illness & Injury Care",
+        title: "Acute Illness & Injury Care",
     description:
       "Diagnosis and management of common medical conditions such as colds, flu, infections, and minor injuries.",
   
  },
   {
-    title: "6. Laboratory Services",
+    title: "Laboratory Services",
     description:
       "On-site laboratory testing for a wide range of blood tests, external lab partnerships for specialized investigations, and comprehensive discounted medical packages for in-office and corporate health screening.",
   },
   {
-    title: "7. Home & Office Visits",
+    title: "Home & Office Visits",
     description:
       "House calls and workplace consultations for executive assessments and employee wellness services. Includes follow-up assessments, chronic disease monitoring, post-hospitalization care, medication management, and clinically indicated IV therapy in home or workplace settings.",
   },
   {
-    title: "8. Workplace Visits",
+    title: "Workplace Visits",
     description:
       "Workplace consultations for staff and corporate clients, suitable for executive checkups, follow-ups, and employee wellness programs.",
   },
   {
-    title: "9. Diagnostic Imaging",
+    title: "Diagnostic Imaging",
     description:
       "Mobile ultrasound services with a certified on-call technician for home and office visits, providing convenient on-site imaging for diagnostic evaluations.",
   },
   {
-    title: "10. Patient Education",
+    title: "Patient Education",
     description:
       "Guidance on preventive health, treatment options, and ongoing disease management.",
   },
