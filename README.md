@@ -43,6 +43,8 @@ Set `EMAIL_FROM` to a verified sender address in your Resend account.
 The appointment API route uses Upstash Redis for global distributed rate limiting when
 `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` are configured.
 
+`UPSTASH_REDIS_REST_URL` must be the full Upstash REST URL starting with `https://`.
+
 If these variables are missing, the app falls back to an in-memory limiter, which is suitable
 for local development but not globally shared across serverless instances.
 
