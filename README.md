@@ -16,6 +16,8 @@ Copy `.env.example` to `.env.local` and set:
 - `RESEND_API_KEY`
 - `EMAIL_FROM`
 - `EMAIL_TO`
+- `TURNSTILE_SECRET_KEY`
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
 - `CONTACT_PHONE`
 - `PRACTICE_ADDRESS`
 - `NEXT_PUBLIC_GA_ID` (optional, for Google Analytics 4)

@@ -2,6 +2,7 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
+import Script from "next/script";
 
 type FormState = {
   status: "idle" | "sending" | "success" | "error";
@@ -15,6 +16,7 @@ const initialState: FormState = {
 
 export function AppointmentForm() {
   const [state, setState] = useState<FormState>(initialState);
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -108,9 +110,20 @@ export function AppointmentForm() {
 
       <input name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
+      {turnstileSiteKey ? (
+        <>
+          <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+          <div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" />
+        </>
+      ) : (
+        <p className="text-sm text-red-700">
+          CAPTCHA is not configured. Please try again later.
+        </p>
+      )}
+
       <button
         type="submit"
-        disabled={state.status === "sending"}
+        disabled={state.status === "sending" || !turnstileSiteKey}
         className="inline-flex w-fit rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#285d52] disabled:cursor-not-allowed disabled:opacity-70"
       >
         {state.status === "sending" ? "Sending..." : "Send"}
