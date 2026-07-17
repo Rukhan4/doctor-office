@@ -88,7 +88,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mt-8 rounded-2xl border border-line bg-page/70 p-5 text-center">
+            <div className="mt-5 rounded-2xl border border-line bg-page/70 p-5 text-center">
               <p className="text-sm font-medium text-accent">{practice.availability}</p>
             </div>
 
