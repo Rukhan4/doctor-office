@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { AnalyticsLink } from "../components/analytics-link";
 import { HomeMapPanel } from "../components/home-map-panel";
 import { SectionHeading } from "../components/section-heading";
@@ -22,6 +21,16 @@ export default function HomePage() {
               </AnalyticsLink>
               <AnalyticsLink href={practice.mapUrl} target="_blank" rel="noreferrer" eventName="map_click" eventLabel="home_hero" className="rounded-full border border-line bg-white/80 px-6 py-3 text-sm font-semibold text-ink transition hover:bg-white">
                 Open map location
+              </AnalyticsLink>
+              <AnalyticsLink
+                href="/patient-registration-form.pdf"
+                target="_blank"
+                rel="noreferrer"
+                eventName="patient_form_click"
+                eventLabel="home_hero"
+                className="rounded-full border border-line bg-white/80 px-6 py-3 text-sm font-semibold text-ink transition hover:bg-white"
+              >
+                Patient registration form (PDF)
               </AnalyticsLink>
             </div>
             <p className="mt-4 text-sm font-medium text-muted">

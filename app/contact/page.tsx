@@ -38,11 +38,24 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-[2rem] border border-line bg-accentSoft p-6 text-center text-sm leading-7 text-ink">
-          <p className="text-base font-semibold">Privacy disclaimer</p>
-          <p className="mt-2">
-            Appointment requests are sent to the office email for follow-up. No client information is stored in a database on this website.
+
+        <div className="mt-6 rounded-[2rem] border border-line bg-white/85 p-6 text-center shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Patient registration</p>
+          <p className="mt-2 text-sm leading-7 text-muted">
+            Complete the registration form before your visit for faster check-in.
           </p>
+          <div className="mt-4">
+            <AnalyticsLink
+              href="/patient-registration-form.pdf"
+              target="_blank"
+              rel="noreferrer"
+              eventName="patient_form_click"
+              eventLabel="contact_page"
+              className="inline-flex rounded-full border border-line bg-page px-5 py-2.5 text-sm font-semibold text-ink transition hover:bg-white"
+            >
+              Open patient registration PDF
+            </AnalyticsLink>
+          </div>
         </div>
       </div>
 
