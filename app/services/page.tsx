@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Comprehensive medical services including general care, chronic disease management, diabetic wound care, laboratory services, and home/office visits.",
   keywords: ["medical services", "general care", "chronic disease", "wound care", "laboratory", "home visits"],
   openGraph: {
-    title: "Services | Doctor's Office Curepe",
+    title: "Services | PrimeCare Medical Centre",
     description: "Comprehensive medical services including general care, chronic disease management, and specialist wound care.",
   },
 };

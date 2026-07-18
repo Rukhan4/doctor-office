@@ -6,16 +6,16 @@ import { SectionHeading } from "../../components/section-heading";
 export const metadata: Metadata = {
   title: "Packages",
   description:
-    "Medical Package 1 and All-in-One STI Screening Package details, pricing, and included tests at Doctor's Office Curepe.",
+    "Medical Package 1 and All-in-One STI Screening Package details, pricing, and included tests at PrimeCare Medical Centre.",
   keywords: [
     "medical package",
     "sti screening package",
     "health screening",
-    "Doctor's Office Curepe",
+    "PrimeCare Medical Centre",
     "Curepe",
   ],
   openGraph: {
-    title: "Packages | Doctor's Office Curepe",
+    title: "Packages | PrimeCare Medical Centre",
     description:
       "See Medical Package 1 and the All-in-One STI Screening Package, including pricing and included services.",
   },

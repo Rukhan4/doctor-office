@@ -20,7 +20,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-line bg-[rgba(244,241,234,0.86)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="font-display text-lg font-semibold tracking-wide text-ink">
-          Doctor&apos;s Office Curepe
+          PRIMECARE MEDICAL CENTRE
         </Link>
 
         <nav className="hidden gap-6 md:flex">

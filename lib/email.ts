@@ -15,7 +15,7 @@ function escapeHtml(value: string) {
 export async function sendAppointmentEmail(request: AppointmentRequest) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM;
-  const to = process.env.EMAIL_TO ?? "doctorsofficecurepe@gmail.com";
+  const to = process.env.EMAIL_TO ?? "primecare.curepe@gmail.com";
 
   if (!apiKey || !from) {
     return {

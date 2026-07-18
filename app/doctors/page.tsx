@@ -4,10 +4,10 @@ import { philosophy, team } from "../../lib/content";
 
 export const metadata: Metadata = {
   title: "Medical Team",
-  description: "Meet Dr. Gregory Athekame and the dedicated healthcare professionals at Doctor's Office Curepe committed to patient care.",
+  description: "Meet Dr. Gregory Athekame and the dedicated healthcare professionals at PrimeCare Medical Centre committed to patient care.",
   keywords: ["Dr. Gregory Athekame", "medical team", "doctor", "staff", "healthcare professionals"],
   openGraph: {
-    title: "Medical Team | Doctor's Office Curepe",
+    title: "Medical Team | PrimeCare Medical Centre",
     description: "Meet our dedicated healthcare professionals led by Dr. Gregory Athekame.",
   },
 };

@@ -8,8 +8,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://doctorsofficecurepe.com"),
   title: {
-    default: "Doctor's Office Curepe | Dr. Gregory Athekame, MBBS",
-    template: "%s | Doctor's Office Curepe",
+    default: `${practice.name} | Dr. Gregory Athekame, MBBS`,
+    template: `%s | ${practice.name}`,
   },
   description: "17 years of trusted, patient-centred healthcare in Curepe. Dr. Gregory Athekame offers general medicine, chronic disease management, diabetic wound care, and home/office visits.",
   keywords: [
@@ -23,19 +23,19 @@ export const metadata: Metadata = {
     "workplace health",
     "family doctor",
   ],
-  authors: [{ name: "Doctor's Office Curepe" }],
-  creator: "Doctor's Office Curepe",
+  authors: [{ name: practice.name }],
+  creator: "PrimeCare Medical Centre",
   openGraph: {
     type: "website",
     locale: "en_TT",
     url: "https://doctorsofficecurepe.com",
-    title: "Doctor's Office Curepe | Dr. Gregory Athekame, MBBS",
+    title: `${practice.name} | Dr. Gregory Athekame, MBBS`,
     description: "17 years of trusted, patient-centred healthcare in Curepe.",
-    siteName: "Doctor's Office Curepe",
+    siteName: practice.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Doctor's Office Curepe",
+    title: practice.name,
     description: "17 years of trusted, patient-centred healthcare in Curepe.",
   },
   robots: {

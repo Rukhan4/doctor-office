@@ -1,8 +1,8 @@
 export const practice = {
-  name: "Doctor's Office Curepe",
+  name: "PRIMECARE MEDICAL CENTRE",
   tagline: "17 years of trusted, patient-centred care in Curepe.",
   intro: "Dr. Gregory brings 17 years of clinical experience and is ready to serve you with accessible, holistic, patient-centred care.",
-  email: "doctorsofficecurepe@gmail.com",
+  email: "primecare.curepe@gmail.com",
   phone: "645-0182",
   address: "Opposite Curepe Community Centre, 310422, 143 Southern Main Rd, Curepe",
   doctorName: "Dr. Gregory Athekame, MBBS",
@@ -25,7 +25,7 @@ export const serviceAreas = [
 ];
 
 export const purposeStatement =
-  "The practice is committed to delivering accessible, patient-centred healthcare through a combination of in-office consultations, house calls, and workplace visits. Dr. Athekame's approach focuses on preventive medicine, early diagnosis, and personalized treatment plans tailored to each patient's unique circumstances. Our practice serves individuals and corporate clients alike, prioritizing preventive care and early intervention to achieve the best health outcomes. Whether managing chronic conditions, addressing acute illness, or providing specialized wound care, our mission is to make quality healthcare convenient and compassionate.";
+  "With 17 years of clinical experience, the practice is committed to delivering accessible, patient-centred healthcare through a combination of in-office consultations, house calls, and workplace visits. Dr. Athekame's approach focuses on preventive medicine, early diagnosis, and personalized treatment plans tailored to each patient's unique circumstances. Our practice serves individuals and corporate clients alike, prioritizing preventive care and early intervention to achieve the best health outcomes. Whether managing chronic conditions, addressing acute illness, or providing specialized wound care, our mission is to make quality healthcare convenient and compassionate.";
 
 export const philosophy = [
   {

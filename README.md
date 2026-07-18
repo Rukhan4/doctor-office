@@ -1,4 +1,4 @@
-# Doctor's Office Curepe
+# PrimeCare Medical Centre
 
 Frontend-first website for a local medical office. Built with Next.js, TypeScript, and Tailwind CSS, and designed for Vercel deployment.
 

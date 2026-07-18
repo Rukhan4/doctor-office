@@ -6,11 +6,11 @@ import { contactPoints, practice } from "../../lib/content";
 
 export const metadata: Metadata = {
   title: "Contact & Book Appointment",
-  description: "Contact Doctor's Office Curepe or book your appointment with Dr. Gregory Athekame. Call 645-0182 or submit an appointment request.",
+  description: "Contact PrimeCare Medical Centre or book your appointment with Dr. Gregory Athekame. Call 645-0182 or submit an appointment request.",
   keywords: ["contact", "appointment", "book", "phone", "email", "location"],
   openGraph: {
-    title: "Contact & Appointment | Doctor's Office Curepe",
-    description: "Book your appointment or get in touch with Doctor's Office Curepe.",
+    title: "Contact & Appointment | PrimeCare Medical Centre",
+    description: "Book your appointment or get in touch with PrimeCare Medical Centre.",
   },
 };
 
