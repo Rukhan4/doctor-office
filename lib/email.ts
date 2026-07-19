@@ -14,11 +14,13 @@ function escapeHtml(value: string) {
 
 export async function sendAppointmentEmail(request: AppointmentRequest) {
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.EMAIL_TO ?? "primecare.curepe@gmail.com";
+  const verifiedInbox = "primecare.curepe@gmail.com";
   const configuredFrom = process.env.EMAIL_FROM?.trim();
-  const from = configuredFrom && !configuredFrom.toLowerCase().includes("gmail.com")
+  const usesVerifiedDomainSender = Boolean(configuredFrom && !configuredFrom.toLowerCase().includes("gmail.com"));
+  const from = usesVerifiedDomainSender
     ? configuredFrom
     : "PrimeCare Medical Centre <onboarding@resend.dev>";
+  const to = usesVerifiedDomainSender ? (process.env.EMAIL_TO ?? verifiedInbox) : verifiedInbox;
 
   if (!apiKey) {
     return {

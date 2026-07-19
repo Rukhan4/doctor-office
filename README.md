@@ -36,8 +36,8 @@ npm run dev
 ## Email setup
 
 The appointment form posts to `/api/appointment`, which sends mail through Resend.
-Set `EMAIL_TO` to the inbox that should receive the appointment requests.
-If `EMAIL_FROM` is not set to a verified sender, the app falls back to Resend's verified onboarding sender.
+If `EMAIL_FROM` is not set to a verified sender, the app falls back to Resend's verified onboarding sender and delivers to `primecare.curepe@gmail.com`.
+Set `EMAIL_TO` only after you verify a sending domain in Resend.
 
 ## Rate limiting
 
