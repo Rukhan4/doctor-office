@@ -14,7 +14,7 @@ Frontend-first website for a local medical office. Built with Next.js, TypeScrip
 Copy `.env.example` to `.env.local` and set:
 
 - `RESEND_API_KEY`
-- `EMAIL_FROM`
+- `EMAIL_FROM` (optional; defaults to a verified Resend sender)
 - `EMAIL_TO`
 - `TURNSTILE_SECRET_KEY`
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
@@ -36,7 +36,8 @@ npm run dev
 ## Email setup
 
 The appointment form posts to `/api/appointment`, which sends mail through Resend.
-Set `EMAIL_FROM` to a verified sender address in your Resend account.
+Set `EMAIL_TO` to the inbox that should receive the appointment requests.
+If `EMAIL_FROM` is not set to a verified sender, the app falls back to Resend's verified onboarding sender.
 
 ## Rate limiting
 

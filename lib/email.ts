@@ -14,13 +14,16 @@ function escapeHtml(value: string) {
 
 export async function sendAppointmentEmail(request: AppointmentRequest) {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.EMAIL_FROM;
   const to = process.env.EMAIL_TO ?? "primecare.curepe@gmail.com";
+  const configuredFrom = process.env.EMAIL_FROM?.trim();
+  const from = configuredFrom && !configuredFrom.toLowerCase().includes("gmail.com")
+    ? configuredFrom
+    : "PrimeCare Medical Centre <onboarding@resend.dev>";
 
-  if (!apiKey || !from) {
+  if (!apiKey) {
     return {
       ok: false,
-      error: "Email provider is not configured. Set RESEND_API_KEY and EMAIL_FROM.",
+      error: "Email provider is not configured. Set RESEND_API_KEY.",
     };
   }
 
