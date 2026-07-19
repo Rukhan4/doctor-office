@@ -20,9 +20,10 @@ export function AppointmentForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setState({ status: "sending", message: "Sending your request..." });
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
 
     const response = await fetch("/api/appointment", {
@@ -43,7 +44,7 @@ export function AppointmentForm() {
       return;
     }
 
-    event.currentTarget.reset();
+    form.reset();
     setState({
       status: "success",
       message: result.message ?? "Your request was sent successfully.",
