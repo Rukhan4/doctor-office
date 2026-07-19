@@ -81,13 +81,19 @@ async function verifyTurnstileToken(token: string, remoteIp?: string) {
     form.set("remoteip", remoteIp);
   }
 
-  const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: form,
-  });
+  let response: Response;
+
+  try {
+    response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: form,
+    });
+  } catch {
+    return { ok: false, message: "CAPTCHA verification is temporarily unavailable." };
+  }
 
   if (!response.ok) {
     return { ok: false, message: "CAPTCHA verification failed." };
@@ -107,13 +113,24 @@ export async function POST(request: Request) {
     const ip = getClientIp(request);
 
     if (appointmentRateLimiter) {
-      const { success } = await appointmentRateLimiter.limit(`appointment:${ip}`);
+      try {
+        const { success } = await appointmentRateLimiter.limit(`appointment:${ip}`);
 
-      if (!success) {
-        return NextResponse.json(
-          { message: "Too many requests. Please wait and try again." },
-          { status: 429 },
-        );
+        if (!success) {
+          return NextResponse.json(
+            { message: "Too many requests. Please wait and try again." },
+            { status: 429 },
+          );
+        }
+      } catch {
+        cleanExpiredRateLimitEntries();
+
+        if (isRateLimited(ip, appointmentRateLimitMax, appointmentRateLimitWindowMs)) {
+          return NextResponse.json(
+            { message: "Too many requests. Please wait and try again." },
+            { status: 429 },
+          );
+        }
       }
     } else {
       cleanExpiredRateLimitEntries();
@@ -126,7 +143,13 @@ export async function POST(request: Request) {
       }
     }
 
-    const body = (await request.json()) as Record<string, unknown>;
+    let body: Record<string, unknown>;
+
+    try {
+      body = (await request.json()) as Record<string, unknown>;
+    } catch {
+      return NextResponse.json({ message: "Invalid request body." }, { status: 400 });
+    }
 
     if (body.company) {
       return NextResponse.json({ message: "Spam detected." }, { status: 400 });
@@ -178,7 +201,8 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ message: "Appointment request sent successfully." });
-  } catch {
+  } catch (error) {
+    console.error("Appointment API failed", error);
     return NextResponse.json({ message: "Unable to process the request." }, { status: 500 });
   }
 }

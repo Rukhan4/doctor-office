@@ -7,6 +7,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://doctorsofficecurepe.com"),
+  icons: {
+    icon: "/siteicon.jpg",
+  },
   title: {
     default: `${practice.name} | Dr. Gregory Athekame, MBBS`,
     template: `%s | ${practice.name}`,
