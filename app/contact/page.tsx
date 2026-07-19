@@ -17,11 +17,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <section className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-      <div>
+      <div className="pt-6 sm:pt-8">
         <SectionHeading
           eyebrow="Contact"
-          title="Book your appointment and reach the office quickly."
-          description="Call, email, or submit the form and the office will follow up with confirmation details."
+          title="Book your appointment"
+          description="Call, email, or submit the form and our office will follow up with confirmation details."
         />
         <div className="mt-10 space-y-4 rounded-[2rem] border border-line bg-white/85 p-6 text-center shadow-sm">
           {contactPoints.map((item) => (
@@ -62,9 +62,9 @@ export default function ContactPage() {
       <div className="rounded-[2rem] border border-line bg-white/90 p-6 shadow-soft sm:p-8">
         <SectionHeading
           eyebrow="Appointment request"
-          title="Send the office the essentials in one message."
+          title="Let's get in touch!"
         />
-        <div className="mt-8">
+        <div className="mt-2">
           <AppointmentForm />
         </div>
       </div>
