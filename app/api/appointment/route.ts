@@ -66,7 +66,7 @@ function cleanExpiredRateLimitEntries() {
 }
 
 async function verifyTurnstileToken(token: string, remoteIp?: string) {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
+  const secret = process.env.TURNSTILE_SECRET;
 
   if (!secret) {
     return { ok: false, message: "CAPTCHA verification is not configured." };

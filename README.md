@@ -16,7 +16,7 @@ Copy `.env.example` to `.env.local` and set:
 - `RESEND_API_KEY`
 - `EMAIL_FROM` (optional; defaults to a verified Resend sender)
 - `EMAIL_TO`
-- `TURNSTILE_SECRET_KEY`
+- `TURNSTILE_SECRET`
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
 - `UPSTASH_REDIS_REST_URL` (required for global distributed rate limiting)
 - `UPSTASH_REDIS_REST_TOKEN` (required for global distributed rate limiting)
