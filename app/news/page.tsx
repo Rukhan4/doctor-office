@@ -30,16 +30,16 @@ export default function NewsPage() {
             key={post.slug}
             className="overflow-hidden rounded-[1.5rem] border border-line bg-white shadow-sm"
           >
-            <div className="relative h-56 w-full bg-page">
+            <div className="relative aspect-[2/3] w-full bg-page">
               <Image
                 src={post.image}
                 alt={post.title}
                 fill
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover object-top"
+                className="object-contain"
               />
             </div>
-            <div className="p-6">
+            <div className="p-6 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                 {new Date(post.date).toLocaleDateString("en-US", {
                   year: "numeric",
@@ -47,8 +47,6 @@ export default function NewsPage() {
                   day: "numeric",
                 })}
               </p>
-              <h2 className="mt-2 font-display text-2xl text-ink">{post.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-muted">{post.summary}</p>
             </div>
           </article>
         ))}

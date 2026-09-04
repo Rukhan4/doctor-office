@@ -22,29 +22,25 @@ export function NewsCarousel({ posts }: NewsCarouselProps) {
   }
 
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-sm">
       <div className="overflow-hidden rounded-[2rem] border border-line bg-white shadow-sm">
-        <div className="grid gap-0 sm:grid-cols-[220px_1fr]">
-          <div className="relative h-56 w-full bg-page sm:h-full">
-            <Image
-              src={post.image}
-              alt={post.title}
-              fill
-              sizes="(min-width: 640px) 220px, 100vw"
-              className="object-cover object-top"
-            />
-          </div>
-          <div className="flex flex-col justify-center p-7 text-center sm:text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              {new Date(post.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
-            <h3 className="mt-2 font-display text-2xl text-ink">{post.title}</h3>
-            <p className="mt-3 text-sm leading-7 text-muted">{post.summary}</p>
-          </div>
+        <div className="relative aspect-[2/3] w-full bg-page">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            sizes="(min-width: 640px) 24rem, 100vw"
+            className="object-contain"
+          />
+        </div>
+        <div className="p-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            {new Date(post.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
         </div>
       </div>
 
