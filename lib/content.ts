@@ -134,6 +134,17 @@ export const insuranceAccepted = [
   "WASA Estate Police & Daily Paid et al",
 ];
 
+export const news = [
+  {
+    slug: "back-to-school-vaccines",
+    title: "Back to School Vaccine Specials",
+    date: "2026-09-04",
+    summary:
+      "Get your children ready for the new school term with our back-to-school vaccine specials, available now at PrimeCare Medical Centre.",
+    image: "/back-to-school-vaccines.jpeg",
+  },
+];
+
 export const contactPoints = [
   {
     label: "Email",
