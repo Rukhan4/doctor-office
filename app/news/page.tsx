@@ -24,22 +24,22 @@ export default function NewsPage() {
         description="Stay up to date with offers, announcements, and health reminders from our practice."
       />
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-2">
+      <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {news.map((post) => (
           <article
             key={post.slug}
             className="overflow-hidden rounded-[1.5rem] border border-line bg-white shadow-sm"
           >
-            <div className="relative aspect-[2/3] w-full bg-page">
+            <div className="relative h-56 w-full bg-page">
               <Image
                 src={post.image}
                 alt={post.title}
                 fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-contain"
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover object-top"
               />
             </div>
-            <div className="p-7">
+            <div className="p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                 {new Date(post.date).toLocaleDateString("en-US", {
                   year: "numeric",

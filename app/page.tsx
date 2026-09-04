@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { AnalyticsLink } from "../components/analytics-link";
 import { HomeMapPanel } from "../components/home-map-panel";
+import { NewsCarousel } from "../components/news-carousel";
 import { SectionHeading } from "../components/section-heading";
-import { insuranceAccepted, philosophy, practice, purposeStatement, serviceAreas } from "../lib/content";
+import { insuranceAccepted, news, practice, purposeStatement, serviceAreas } from "../lib/content";
 
 const purposeHighlight = "17 years of clinical experience";
 
@@ -41,17 +42,15 @@ export default function HomePage() {
             </div>
 
             <div className="rounded-[2rem] border border-line bg-white/85 p-8 text-center shadow-sm">
-              <h3 className="font-display text-3xl text-ink">Our Philosophy</h3>
-              <div className="mt-6 grid gap-4">
-                {philosophy.map((item, index) => (
-                  <article
-                    key={item.title}
-                    className="rounded-2xl border border-line bg-page/80 p-5 text-center"
-                  >
-                    <h4 className="text-xl font-semibold text-ink">{item.title}</h4>
-                    <p className="mt-2 text-sm leading-7 text-muted">{item.description}</p>
-                  </article>
-                ))}
+              <h3 className="font-display text-3xl text-ink">Opening Hours</h3>
+              <div className="mt-6 space-y-2 text-sm leading-7 text-muted">
+                <p>Monday - Friday: 9:30 a.m. - 5:00 p.m.</p>
+                <p>Saturday: 9:00 a.m. - 2:00 p.m.</p>
+                <p>Sundays &amp; Public Holidays: By special appointment only.</p>
+                <p className="font-medium text-ink">Walk-ins accepted during opening hours.</p>
+              </div>
+              <div className="mt-6 rounded-2xl border border-line bg-page/70 p-5">
+                <p className="text-sm font-medium text-accent">{practice.availability}</p>
               </div>
             </div>
           </div>
@@ -82,20 +81,6 @@ export default function HomePage() {
             </div>
 
             <div className="mt-12 rounded-2xl border border-line bg-page/70 p-5 text-center lg:mt-8">
-              <h3 className="text-lg font-semibold text-ink">Opening Hours</h3>
-              <div className="mt-3 space-y-2 text-sm leading-7 text-muted">
-                <p>Monday - Friday: 9:30 a.m. - 5:00 p.m.</p>
-                <p>Saturday: 9:00 a.m. - 2:00 p.m.</p>
-                <p>Sundays &amp; Public Holidays: By special appointment only.</p>
-                <p className="font-medium text-ink">Walk-ins accepted during opening hours.</p>
-              </div>
-            </div>
-
-            <div className="mt-5 rounded-2xl border border-line bg-page/70 p-5 text-center">
-              <p className="text-sm font-medium text-accent">{practice.availability}</p>
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-line bg-page/70 p-5 text-center lg:mt-8">
               <h3 className="text-lg font-semibold text-ink">Insurance Accepted</h3>
               <div className="mt-4 flex flex-wrap justify-center gap-2">
                 {insuranceAccepted.map((provider) => (
@@ -106,6 +91,13 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+        <SectionHeading eyebrow="News" title="Latest News & Specials" />
+        <div className="mt-10">
+          <NewsCarousel posts={news} />
         </div>
       </section>
 
