@@ -32,6 +32,9 @@ pnpm-debug.log*
 /test-results/
 /blob-report/
 
+# Lighthouse CI
+/.lighthouseci/
+
 # OS files
 .DS_Store
 
