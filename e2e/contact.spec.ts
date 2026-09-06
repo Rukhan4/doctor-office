@@ -81,47 +81,4 @@ test.describe("contact page", () => {
   });
 });
 
-test.describe("appointment API", () => {
-  test("rejects a request missing the CAPTCHA token", async ({ request }) => {
-    const response = await request.post("/api/appointment", {
-      data: {
-        name: "Jane Doe",
-        email: "jane@example.com",
-        phone: "868-555-0100",
-        preferredDate: "2026-09-20",
-        preferredTime: "Morning",
-        reason: "Annual checkup",
-      },
-    });
-
-    expect(response.status()).toBe(400);
-    const body = await response.json();
-    expect(body.message).toMatch(/captcha/i);
-  });
-
-  test("rejects an incomplete payload with a 400", async ({ request }) => {
-    const response = await request.post("/api/appointment", {
-      data: { name: "Jane Doe" },
-    });
-
-    expect(response.status()).toBe(400);
-  });
-
-  test("rejects honeypot-triggering submissions", async ({ request }) => {
-    const response = await request.post("/api/appointment", {
-      data: {
-        name: "Jane Doe",
-        email: "jane@example.com",
-        phone: "868-555-0100",
-        preferredDate: "2026-09-20",
-        preferredTime: "Morning",
-        reason: "Annual checkup",
-        company: "I am a bot",
-      },
-    });
-
-    expect(response.status()).toBe(400);
-    const body = await response.json();
-    expect(body.message).toMatch(/spam/i);
-  });
-});
+// API-level tests for /api/appointment live in e2e/api/appointment.api.spec.ts.
