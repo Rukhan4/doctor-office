@@ -15,10 +15,13 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   projects: [
-    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-    { name: "firefox", use: { ...devices["Desktop Firefox"] } },
-    { name: "webkit", use: { ...devices["Desktop Safari"] } },
-    { name: "mobile-safari", use: { ...devices["iPhone 13"] } },
+    // API tests hit the route directly and don't need a browser, so they run
+    // once in their own project rather than across every browser.
+    { name: "api", testMatch: /e2e\/api\/.*\.spec\.ts/ },
+    { name: "chromium", testIgnore: /e2e\/api\//, use: { ...devices["Desktop Chrome"] } },
+    { name: "firefox", testIgnore: /e2e\/api\//, use: { ...devices["Desktop Firefox"] } },
+    { name: "webkit", testIgnore: /e2e\/api\//, use: { ...devices["Desktop Safari"] } },
+    { name: "mobile-safari", testIgnore: /e2e\/api\//, use: { ...devices["iPhone 13"] } },
   ],
   webServer: {
     command: "npm run dev",
