@@ -6,11 +6,11 @@ import { test, expect } from "@playwright/test";
  * codes, validation errors, spam/CAPTCHA handling, and rate-limiting
  * behaviour independent of the contact-page UI.
  *
- * The Playwright webServer (see playwright.config.ts) runs with Cloudflare's
- * always-passes Turnstile test keys and no email provider configured. These
- * tests therefore focus on the deterministic paths — validation, spam and
- * CAPTCHA-token checks, and rate limiting — rather than a live 200 response,
- * which also depends on outbound access to Cloudflare and Resend.
+ * The Playwright webServer (see playwright.config.ts) runs with a Turnstile
+ * secret that always fails validation and no email provider configured, so
+ * every path these tests assert is deterministic: field validation, spam and
+ * CAPTCHA checks (400/403), and rate limiting (429). A live 200 response
+ * depends on real credentials and is covered by the opt-in smoke test.
  */
 
 const validPayload = {
@@ -90,19 +90,16 @@ test.describe("POST /api/appointment", () => {
     expect((await response.json()).message).toMatch(/captcha/i);
   });
 
-  test("a schema-valid payload is accepted past field validation", async ({ request }) => {
+  test("returns 403 when the CAPTCHA token is rejected", async ({ request }) => {
+    // validPayload clears schema validation and carries a token, so the only
+    // thing left to fail is CAPTCHA verification (test secret always fails).
     const response = await request.post("/api/appointment", {
       headers: headersForIp("10.0.0.7"),
       data: validPayload,
     });
 
-    // A well-formed payload must not be rejected as a validation error. What
-    // happens next depends on the environment: 200 when a real RESEND_API_KEY
-    // is set, 503 when the email provider is unconfigured, or 403 when the
-    // CAPTCHA verifier (challenges.cloudflare.com) is unreachable from the
-    // runner. All of these mean field validation passed.
-    expect(response.status()).not.toBe(400);
-    expect([200, 403, 503]).toContain(response.status());
+    expect(response.status()).toBe(403);
+    expect((await response.json()).message).toMatch(/captcha/i);
   });
 
   test("returns 429 once the per-IP rate limit is exceeded", async ({ request }) => {
